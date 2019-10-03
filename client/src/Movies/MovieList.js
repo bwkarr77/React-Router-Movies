@@ -7,6 +7,7 @@ const MovieList = props => {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     const getMovies = () => {
+      //sets the function, but doesn't call it yet
       axios
         .get("http://localhost:5000/api/movies")
         .then(response => {
@@ -17,7 +18,7 @@ const MovieList = props => {
         });
     };
 
-    getMovies();
+    getMovies(); //this actually calls the function
   }, []);
 
   return (
@@ -29,6 +30,7 @@ const MovieList = props => {
   );
 };
 
+//Maybe turn this into a component instead of leaving here?
 function MovieDetails({ movie }) {
   const { title, director, metascore, stars } = movie;
   return (

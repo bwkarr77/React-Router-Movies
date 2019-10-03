@@ -7,11 +7,12 @@ import Movie from "./Movies/Movie";
 
 const App = () => {
   const [savedList, setSavedList] = useState([]);
-  // const [movies, setMovies] = useState([]);
 
   const addToSavedList = movie => {
-    console.log("addToSavedList running...");
-    setSavedList([...savedList, movie]);
+    if (!savedList.map(movie => movie.id).includes(movie.id)) {
+      console.log("addToSavedList running...");
+      setSavedList([...savedList, movie]);
+    } else console.log("Seats Taken");
   };
 
   return (
